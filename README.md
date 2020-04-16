@@ -1,4 +1,4 @@
-# cypress-e2e-test-tutorial
+# cypress-e2e-testing-workshop
 
 repository tells about how you can do cool stuff in cypress from scratch:
 
