@@ -1,0 +1,22 @@
+{
+  "name": "e2e-test",
+  "version": "1.0.0",
+  "description": "UI Testing With Cypress",
+  "main": "index.js",
+  "scripts": {
+    "e2e": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyaga001/Cypress-End-to-End-Testing.git"
+  },
+  "author": "Ankur Tyagi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyaga001/Cypress-End-to-End-Testing/issues"
+  },
+  "homepage": "https://github.com/tyaga001/Cypress-End-to-End-Testing#readme",
+  "devDependencies": {
+    "cypress": "^4.4.0"
+  }
+}

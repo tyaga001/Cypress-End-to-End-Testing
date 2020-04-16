@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Test Automation</title>
+    <link rel="stylesheet" href="style.css" media="screen"/>
+    <script type="text/javascript" src="formValidation.js">
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <h2>REGISTRATION FORM</h2>
+    </div>
+    <form data-cy="app-form" class="form" id="form">
+        <div class="form-control">
+            <label data-cy="name" for="name">Name</label>
+            <input type="text" placeholder="name" id="name">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label data-cy="email" for="email">Email</label>
+            <input type="email" placeholder="email" id="email">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label data-cy="phone" for="phone">Phone</label>
+            <input type="text" placeholder="phone" id="phone">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label data-cy="country" for="country">Country</label>
+            <input type="text" placeholder="country" id="country">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label data-cy="city" for="city">City</label>
+            <input type="text" placeholder="city" id="city">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label data-cy="username" for="username">Username</label>
+            <input data-cy="username" type="text" placeholder="username" id="username">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label data-cy="password" for="password">Password</label>
+            <input type="text" placeholder="Password" id="password">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
+        <button>Submit</button>
+    </form>
+</div>
+</body>
+
+</html>
