@@ -13,3 +13,4 @@ repository tells about how you can do cool stuff in cypress from scratch:
     Install npm dependencies 
     go to directory where you see package.json 
     run this command in terminal: npm install
+    to see cypress test runner run the command : npm run e2e
