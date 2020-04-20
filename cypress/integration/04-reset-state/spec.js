@@ -15,7 +15,6 @@ describe('reset data using XHR call', () => {
         })
         cy.visit('/')
     })
-
     it('adds two items', () => {
         enterInput('first item')
         enterInput('second item')
@@ -30,7 +29,6 @@ describe('reset data using cy.writeFile', () => {
         cy.writeFile('todomvc/data.json', str, 'utf8')
         cy.visit('/')
     })
-
     it('adds two items', () => {
         enterInput('first item')
         enterInput('second item')
@@ -43,7 +41,6 @@ describe('reset data using a task', () => {
         cy.task('resetData')
         cy.visit('/')
     })
-
     it('adds two items', () => {
         enterInput('first item')
         enterInput('second item')
@@ -60,19 +57,14 @@ describe('set initial data', () => {
                 title: 'reset data before test'
             }]
         })
-
         cy.visit('/')
-            // check what is rendered
     })
 
 
     it('sets data using fixture', () => {
         cy.fixture('two-items').then(todos => {
-            // "todos" is an array
             cy.task('resetData', { todos })
         })
-
         cy.visit('/')
-            // check what is rendered
     })
 })

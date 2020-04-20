@@ -5,24 +5,31 @@ beforeEach(() => {
   cy.request('POST', '/reset', {
     todos: []
   })
-})
-beforeEach(() => {
   cy.visit('/')
 })
-/**
- * Adds a todo item
- * @param {string} text
- */
-const addItem = text => {
-  cy.get('.new-todo').type(`${text}{enter}`)
-}
+
+beforeEach(function stubRandomId() {
+  let count = 1
+  cy.window()
+    .its('Math')
+    .then(Math => {
+      cy.stub(Math, 'random', () => {
+        return `0.${count++}`
+      }).as('random') // save reference to the spy
+    })
+})
+
+const enterInput = function(text) {
+    cy.get('.new-todo').type(`${text}{enter}`)
+};
+
 
 it('adds items to store', () => {
-  addItem('something')
-  addItem('something else')
-  // get application's window
-  // then get app, $store, state, todos
-  // it should have 2 items
+  enterInput('something')
+  enterInput('something else')
+   cy.window()
+      .its('app.$store.state.todos')
+      .should('have.length', 2)
 })
 
 it('creates an item with id 1', () => {
@@ -36,7 +43,7 @@ it('creates an item with id 1', () => {
   // then change its Math object and replace it
   // with your function that always returns "0.1"
 
-  addItem('something')
+  enterInput('something')
   // confirm the item sent to the server has the right values
   cy.wait('@new-item')
     .its('request.body')
@@ -47,18 +54,19 @@ it('creates an item with id 1', () => {
     })
 })
 
-// stub function Math.random using cy.stub
-it('creates an item with id using a stub', () => {
-  // get the application's "window.Math" object using cy.window
-  // replace Math.random with cy.stub and store the stub under an alias
-  // create a todo using addItem("foo")
-  // and then confirm that the stub was called once
+it('calls spy twice', () => {
+  enterInput('something')
+  enterInput('else')
+  cy.get('@random').should('have.been.calledTwice')
 })
 
-it('puts the todo items into the data store', () => {
-  // application uses data store to store its items
-  // you can get the data store using "window.app.$store.state.todos"
-  // add a couple of items
-  // get the data store
-  // check its contents
+it('puts todos in the store', () => {
+  enterInput('something')
+  enterInput('else')
+  cy.window()
+    .its('app.$store.state.todos')
+    .should('deep.equal', [
+      { title: 'something', completed: false, id: '1' },
+      { title: 'else', completed: false, id: '2' }
+    ])
 })
